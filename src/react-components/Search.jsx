@@ -1,100 +1,8 @@
-// import React, { useState, useEffect } from "react";
-// // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// // import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
-
-// const SearchBar = () => {
-//   const [searchTerm, setSearchTerm] = useState("");
-//   const [listening, setListening] = useState(false);
-//   const [recordingTime, setRecordingTime] = useState(0);
-
-//   useEffect(() => {
-//     let timerId;
-
-//     if (listening) {
-//       timerId = setInterval(() => {
-//         setRecordingTime((prevTime) => prevTime + 1);
-//       }, 5000);
-//     }
-
-//     return () => {
-//       clearInterval(timerId);
-//     };
-//   }, [listening]);
-
-//   const handleKeyDown = (event) => {
-//     if (event.key === "Enter") {
-//       handleSubmit();
-//     }
-//   };
-
-//   const handleMicClick = () => {
-//     if (!listening) {
-//       startListening();
-//     } else {
-//       stopListening();
-//     }
-//   };
-
-//   const startListening = () => {
-//     setListening(true);
-//     setRecordingTime(0);
-
-//     const recognition = new window.webkitSpeechRecognition();
-//     recognition.continuous = false;
-//     recognition.interimResults = false;
-
-//     recognition.onresult = (event) => {
-//       const transcript = event.results[0][0].transcript;
-//       setSearchTerm(transcript);
-//       recognition.stop();
-//       handleSubmit();
-//     };
-
-//     recognition.start();
-//   };
-
-//   const stopListening = () => {
-//     setListening(false);
-//   };
-
-//   const handleSubmit = () => {
-//     // Perform the necessary backend API request to fetch results based on the searchTerm
-//     fetch(`/api/search?term=${searchTerm}`)
-//       .then((response) => response.json())
-//       .then((data) => {
-//         // Process the search results data
-//         console.log("Search results:", data.results);
-//       })
-//       .catch((error) => {
-//         console.error("Error searching:", error);
-//       });
-//   };
-
-//   return (
-//     <div className="search-bar">
-//       <input
-//         type="text"
-//         value={searchTerm}
-//         onChange={(e) => setSearchTerm(e.target.value)}
-//         onKeyDown={handleKeyDown}
-//         placeholder="Type Your Question Here!"
-//       />
-//       <button
-//         className={`microphone-button ${listening ? "listening" : ""}`}
-//         onClick={handleMicClick}
-//       >
-//         <i class="fa-solid fa-microphone" style={{ color: "#000000" }}></i>
-//       </button>
-//       {listening && <span className="recording-time">{recordingTime}s</span>}
-//     </div>
-//   );
-// };
-
-// export default SearchBar;
-
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [listening, setListening] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
@@ -145,13 +53,6 @@ const SearchBar = () => {
       setMicInputComplete(true); // Indicate that microphone input is complete
     };
 
-    recognition.onend = () => {
-      if (!micInputComplete) {
-        // If the microphone input was not complete, restart the recognition
-        recognition.start();
-      }
-    };
-
     recognition.start();
   };
 
@@ -167,20 +68,28 @@ const SearchBar = () => {
       .then((data) => {
         // Process the search results data
         console.log("Search results:", data.results);
+        // Redirect to the results page (change "/results" to your desired URL)
+        navigate("/results");
       })
       .catch((error) => {
         console.error("Error searching:", error);
       });
   };
 
+  const handleFindOutClick = () => {
+    // Redirect to the "Find Out" page (change "/find-out" to your desired URL)
+    navigate("./Page2");
+  };
+
   return (
-    <div className="search-bar">
+    <div className="search-bar flex flex-row align-middle justify-center">
       <input
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Type Your Question Here!"
+        className="px-4"
       />
       <button
         className={`microphone-button ${listening ? "listening" : ""}`}
@@ -193,8 +102,11 @@ const SearchBar = () => {
         )}
       </button>
       {listening && !micInputComplete && (
-        <span className="recording-time">{recordingTime}s</span>
+        <span className="recording-time mx-1 my-auto">{recordingTime}s</span>
       )}
+      <div className="my-auto mx-4 bg-black text-white rounded-2xl px-3 py-2">
+        <button onClick={handleFindOutClick}>FIND OUT!</button>
+      </div>
     </div>
   );
 };
