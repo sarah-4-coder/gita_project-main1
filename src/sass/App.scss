@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#page1__section--vid {
+    background-image: url("../assets//ball_gif.gif");
+}
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: black;
+}
+.page1__section {
+  &--vid {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .vid__bottom {
+      position: fixed;
+      top: -10rem;
+      width: 140rem;
+      height: auto;
+    }
+  }
+
+  .search-bar {
+    position: absolute;
+    width: 35%;
+    border-radius: 2rem;
+    padding: 1rem;
+    background-color: white;
+    height: 3.5rem;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    input {
+      font-size: 1.7rem;
+      width: 85%;
+      border: none;
+    }
+  }
+}
