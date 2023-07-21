@@ -51,13 +51,6 @@ const SearchBar = () => {
       setMicInputComplete(true); // Indicate that microphone input is complete
     };
 
-    recognition.onend = () => {
-      if (!micInputComplete) {
-        // If the microphone input was not complete, restart the recognition
-        recognition.start();
-      }
-    };
-
     recognition.start();
   };
 
@@ -99,7 +92,7 @@ const SearchBar = () => {
         )}
       </button>
       {listening && !micInputComplete && (
-        <span className="recording-time">{recordingTime}s</span>
+        <span className="recording-time mx-1 my-auto">{recordingTime}s</span>
       )}
     </div>
   );

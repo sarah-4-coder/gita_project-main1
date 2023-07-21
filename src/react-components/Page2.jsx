@@ -54,7 +54,7 @@ export default function Home() {
           className="flex basis-1/2 justify-center align-middle my-auto"
           id="main"
         >
-          <img alt="" src={Main} height={600} width={900} />
+          <img alt="" src={Main} height={600} width={900} className="god__img"/>
         </div>
       </div>
     </div>
