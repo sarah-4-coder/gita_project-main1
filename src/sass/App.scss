@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 #page1__section--vid {
-    background-image: url("../assets//ball_gif.gif");
+  background-image: url("../assets//ball_gif.gif");
 }
-
 
 *,
 *::after,
@@ -20,6 +19,7 @@ html {
 }
 body {
   background-color: black;
+  hyphens: auto;
 }
 .page1__section {
   &--vid {
@@ -50,17 +50,51 @@ body {
       font-size: 1.7rem;
       width: 85%;
       border: none;
-  
     }
   }
 }
 
-.god__img{
-  
+.custom-cursor {
+  background-image: url("../assets/pen.png");
+
+  img {
+    filter: drop-shadow(10px 10px 70px rgb(247, 182, 85));
+ 
+  }
+
+  .scroll-img{
+    width: 85%;
+    
+  }
+
+  .Typewriter{
+    position: absolute;
+    top: 17%;
+    left: 28%;
+    text-align: left;
+    width: 40%;
+    overflow-wrap:break-word;
+    font-size: 1.3rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    
+
+   
+  }
 }
 
-.Typewriter{
-  .Typewriter__cursor{
+.god__img {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 1400px;
+
+  overflow: hidden;
+  height: 100vh;
+}
+
+.Typewriter {
+  .Typewriter__cursor {
     cursor: url("../assets/pen.png"), auto !important;
   }
 }

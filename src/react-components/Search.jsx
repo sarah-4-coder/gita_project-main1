@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [listening, setListening] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
@@ -66,20 +68,28 @@ const SearchBar = () => {
       .then((data) => {
         // Process the search results data
         console.log("Search results:", data.results);
+        // Redirect to the results page (change "/results" to your desired URL)
+        navigate("/results");
       })
       .catch((error) => {
         console.error("Error searching:", error);
       });
   };
 
+  const handleFindOutClick = () => {
+    // Redirect to the "Find Out" page (change "/find-out" to your desired URL)
+    navigate("./Page2");
+  };
+
   return (
-    <div className="search-bar">
+    <div className="search-bar flex flex-row align-middle justify-center">
       <input
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Type Your Question Here!"
+        className="px-4"
       />
       <button
         className={`microphone-button ${listening ? "listening" : ""}`}
@@ -94,6 +104,9 @@ const SearchBar = () => {
       {listening && !micInputComplete && (
         <span className="recording-time mx-1 my-auto">{recordingTime}s</span>
       )}
+      <div className="my-auto mx-4 bg-black text-white rounded-2xl px-3 py-2">
+        <button onClick={handleFindOutClick}>FIND OUT!</button>
+      </div>
     </div>
   );
 };

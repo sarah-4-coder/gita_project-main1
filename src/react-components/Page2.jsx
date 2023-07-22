@@ -12,7 +12,9 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setScrollImage(NewImage);
-      setDisplayText("In publishing and graphic design, Lorem.");
+      setDisplayText(
+        "In publishing and graphic design, Lorem.ftdfghdhgdghdthdtdthdhfdrdfgdrdfxtdxfdthdhxtmdxfgdrtfthfhgftghdcgfdxgfdhfdchfdhfdxgrfs"
+      );
     }, 3400);
 
     return () => {
@@ -30,7 +32,7 @@ export default function Home() {
       <div className="h-screen w-screen flex flex-col-reverse md:flex-row">
         <div className="flex basis-1/2 h-screen md:h-max-[60%] lg:h-max-[100%] align-middle justify-center my-auto relative">
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-            <div className="text-black font-bold z-20 text-lg justify-center text-center max-w-[50%] md:max-w-[36%] lg:max-w-[24%]">
+            <div className="text-black  z-20   ">
               <Typewriter
                 options={{
                   strings: [displayText],
@@ -47,14 +49,14 @@ export default function Home() {
             src={scrollImage}
             height={596}
             width={600}
-            className="relative"
+            className="relative z-10 scroll-img"
           />
         </div>
         <div
-          className="flex basis-1/2 justify-center align-middle my-auto"
+          className="flex basis-1/2 justify-center align-middle my-auto z-5"
           id="main"
         >
-          <img alt="" src={Main} height={600} width={900} className="god__img"/>
+          <img alt="" src={Main} className="god__img" />
         </div>
       </div>
     </div>
