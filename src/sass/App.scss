@@ -64,23 +64,10 @@ body {
 
   .scroll-img{
     width: 85%;
-    
+    transition: all 0.2s;
   }
 
-  .Typewriter{
-    position: absolute;
-    top: 17%;
-    left: 28%;
-    text-align: left;
-    width: 40%;
-    overflow-wrap:break-word;
-    font-size: 1.3rem;
-    font-family: 'Roboto Slab', serif;
-    font-weight: 700;
-    
-
-   
-  }
+  
 }
 
 .god__img {

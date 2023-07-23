@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Main from "../assets/main2.jpg";
 import Scroll from "../assets/scroll2.gif";
 import NewImage from "../assets/new_scroll.png";
-import Typewriter from "typewriter-effect";
+
+import TypewriterEffect from "./Type.jsx";
 import Pen from "../assets/pen.png";
 
 export default function Home() {
@@ -33,15 +34,7 @@ export default function Home() {
         <div className="flex basis-1/2 h-screen md:h-max-[60%] lg:h-max-[100%] align-middle justify-center my-auto relative">
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
             <div className="text-black  z-20   ">
-              <Typewriter
-                options={{
-                  strings: [displayText],
-                  autoStart: true,
-                  loop: true,
-                  typeSpeed: 100,
-                  deleteSpeed: 0,
-                }}
-              />
+              <TypewriterEffect texts={displayText} />
             </div>
           </div>
           <img

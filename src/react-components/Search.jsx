@@ -51,6 +51,9 @@ const SearchBar = () => {
       setSearchTerm(transcript);
       recognition.stop();
       setMicInputComplete(true); // Indicate that microphone input is complete
+      setInterval(() => {
+        handleFindOutClick();
+      }, 2000);
     };
 
     recognition.start();
@@ -58,6 +61,8 @@ const SearchBar = () => {
 
   const stopListening = () => {
     setListening(false);
+    handleSubmit();
+    handleFindOutClick();
     setMicInputComplete(true); // Indicate that the user manually stopped the microphone input
   };
 
@@ -92,19 +97,25 @@ const SearchBar = () => {
         className="px-4"
       />
       <button
-        className={`microphone-button ${listening ? "listening" : ""}`}
+        // className={`microphone-button ${listening ? "listening" : ""}`}
         onClick={handleMicClick}
       >
         {listening && !micInputComplete ? (
-          <i className="fa-solid fa-microphone" style={{ color: "#ff0000" }}></i>
+          <i
+            className="fa-solid fa-microphone w-10"
+            style={{ color: "#ff0000" }}
+          ></i>
         ) : (
-          <i className="fa-solid fa-microphone" style={{ color: "#000000" }}></i>
+          <i
+            className="fa-solid fa-microphone w-10 h-5 text-3xl"
+            style={{ color: "#000000" }}
+          ></i>
         )}
       </button>
       {listening && !micInputComplete && (
         <span className="recording-time mx-1 my-auto">{recordingTime}s</span>
       )}
-      <div className="my-auto mx-4 bg-black text-white rounded-2xl px-3 py-2">
+      <div className=" my-auto mx-4 bg-black text-white rounded-2xl px-3 py-2">
         <button onClick={handleFindOutClick}>FIND OUT!</button>
       </div>
     </div>

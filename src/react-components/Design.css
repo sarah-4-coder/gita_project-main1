@@ -2,6 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-#page1__section--vid {
-    background-image: url("../assets//ball_gif.gif");
-}
