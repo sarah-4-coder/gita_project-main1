@@ -30,12 +30,13 @@ export default function Home() {
 
   return (
     <div className="custom-cursor">
-      <div className="h-screen w-screen flex flex-col-reverse md:flex-row">
-        <div className="flex basis-1/2 h-screen md:h-max-[60%] lg:h-max-[100%] align-middle justify-center my-auto relative">
-          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-            <div className="text-black  z-20   ">
-              <TypewriterEffect texts={displayText} />
-            </div>
+      <div>
+        <img alt="" src={Main} className="god__img" />
+      </div>
+      <div className="h-screen  w-screen lg:flex  lg:flex-row ">
+        <div className=" flex basis-1/2 h-[75vh] md:h-max-[60%] lg:h-screen align-middle justify-center my-auto relative top-[25%] lg:top-0">
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-black  z-20">
+            <TypewriterEffect texts={displayText} />
           </div>
           <img
             alt=""
@@ -44,12 +45,6 @@ export default function Home() {
             width={600}
             className="relative z-10 scroll-img"
           />
-        </div>
-        <div
-          className="flex basis-1/2 justify-center align-middle my-auto z-5"
-          id="main"
-        >
-          <img alt="" src={Main} className="god__img" />
         </div>
       </div>
     </div>

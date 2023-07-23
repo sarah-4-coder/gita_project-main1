@@ -87,7 +87,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="search-bar flex flex-row align-middle justify-center">
+    <div className="search-bar flex flex-row  ">
       <input
         type="text"
         value={searchTerm}
@@ -107,7 +107,7 @@ const SearchBar = () => {
           ></i>
         ) : (
           <i
-            className="fa-solid fa-microphone w-10 h-5 text-3xl"
+            className="fa-solid fa-microphone w-10 h-5 text-6xl mr-12 lg:text-3xl lg:mr-1"
             style={{ color: "#000000" }}
           ></i>
         )}
@@ -115,7 +115,7 @@ const SearchBar = () => {
       {listening && !micInputComplete && (
         <span className="recording-time mx-1 my-auto">{recordingTime}s</span>
       )}
-      <div className=" my-auto  mx-4  bg-black text-white rounded-2xl px-3 py-2">
+      <div className="  my-auto mx-4  bg-black text-white rounded-2xl px-3 py-2 text-4xl lg:text-xl  ">
         <button onClick={handleFindOutClick}>FIND OUT!</button>
       </div>
     </div>

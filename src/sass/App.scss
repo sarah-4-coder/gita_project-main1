@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@mixin respond($breakpoint) {
+  @if $breakpoint==tab-port {
+    @media (max-width: 62em) {
+      @content;
+    } //992em
+  }
+
+  @if $breakpoint==big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    } //1800px
+  }
+}
+
 #page1__section--vid {
   background-image: url("../assets//ball_gif.gif");
 }
@@ -32,6 +46,12 @@ body {
       top: -10rem;
       width: 140rem;
       height: auto;
+
+      @include respond(tab-port) {
+        height: 100vh;
+        object-fit: cover;
+        top: 0;
+      }
     }
   }
 
@@ -41,7 +61,7 @@ body {
     border-radius: 2rem;
     padding: 1rem;
     background-color: white;
-    height: 3.5rem;
+    height: 4rem;
     bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
@@ -56,13 +76,21 @@ body {
         border: none;
         outline: none;
       }
+
+      @include respond(tab-port) {
+        font-size: 4rem;
+      }
+    }
+
+    @include respond(tab-port) {
+      width: 80%;
+      height: 8rem;
+      bottom: 10rem;
     }
   }
 }
 
 .custom-cursor {
-  
-
   img {
     filter: drop-shadow(10px 10px 70px rgb(247, 182, 85));
   }
@@ -70,6 +98,9 @@ body {
   .scroll-img {
     width: 85%;
     transition: all 0.2s;
+    @include respond(tab-port) {
+      mix-blend-mode: screen;
+    }
   }
 }
 
@@ -77,8 +108,9 @@ body {
   position: absolute;
   top: 0;
   left: 0%;
-  width: 1400px;
+  width: 1440px;
 
   overflow: hidden;
   height: 100vh;
+  
 }
