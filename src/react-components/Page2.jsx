@@ -8,14 +8,15 @@ import Pen from "../assets/pen.png";
 
 export default function Home() {
   const [scrollImage, setScrollImage] = useState(Scroll);
+  const initialDisplayText =
+    "lorem*12asdhasudhas dh asu9od hauodhuodi huias hduiasasus uas yuisdg huisg hau duio ad suios uiod huiobdauisgbyuiasg uias nduiasuiao ";
   const [displayText, setDisplayText] = useState("");
+  const [textIndex, setTextIndex] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setScrollImage(NewImage);
-      setDisplayText(
-        "In publishing and graphic design, Lorem.ftdfghdhgdghdthdtdthdhfdrdfgdrdfxtdxfdthdhxtmdxfgdrtfthfhgftghdcgfdxgfdhfdchfdhfdxgrfs"
-      );
+      startTextAnimation();
     }, 3400);
 
     return () => {
@@ -27,6 +28,20 @@ export default function Home() {
     const cursorElement = document.querySelector(".custom-cursor");
     cursorElement.style.cursor = `url(${Pen}), auto`;
   }, []);
+
+  const startTextAnimation = () => {
+    const interval = setInterval(() => {
+      setTextIndex((prevIndex) => {
+        if (prevIndex >= initialDisplayText.length) {
+          clearInterval(interval);
+          return prevIndex;
+        } else {
+          setDisplayText(initialDisplayText.substring(0, prevIndex + 1));
+          return prevIndex + 1;
+        }
+      });
+    }, 40);
+  };
 
   return (
     <div className="custom-cursor">

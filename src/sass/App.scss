@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 #page1__section--vid {
   background-image: url("../assets//ball_gif.gif");
@@ -85,3 +82,8 @@ body {
     cursor: url("../assets/pen.png"), auto !important;
   }
 }
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
