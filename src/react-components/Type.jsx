@@ -20,7 +20,7 @@ const TypewriterEffect = ({texts}) => {
     typeNextCharacter();
   }, [fullText]);
 
-  return <div className="absolute top-[17%] left-[26%] font-bold text-2xl font-text break-words w-[46%] tracking-wide">{text}</div>;
+  return <div className="absolute top-[17%] left-[27%] font-bold text-2xl font-text break-words w-[45%] tracking-wide">{text}</div>;
 };
 
 export default TypewriterEffect;
