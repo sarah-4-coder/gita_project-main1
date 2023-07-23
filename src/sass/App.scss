@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 #page1__section--vid {
   background-image: url("../assets//ball_gif.gif");
@@ -34,7 +37,7 @@ body {
 
   .search-bar {
     position: absolute;
-    width: 35%;
+    width: 37%;
     border-radius: 2rem;
     padding: 1rem;
     background-color: white;
@@ -45,26 +48,29 @@ body {
 
     input {
       font-size: 1.7rem;
-      width: 85%;
+      width: 81%;
       border: none;
+
+      &:focus,
+      &:active {
+        border: none;
+        outline: none;
+      }
     }
   }
 }
 
 .custom-cursor {
-  background-image: url("../assets/pen.png");
+  
 
   img {
     filter: drop-shadow(10px 10px 70px rgb(247, 182, 85));
- 
   }
 
-  .scroll-img{
+  .scroll-img {
     width: 85%;
     transition: all 0.2s;
   }
-
-  
 }
 
 .god__img {
@@ -76,14 +82,3 @@ body {
   overflow: hidden;
   height: 100vh;
 }
-
-.Typewriter {
-  .Typewriter__cursor {
-    cursor: url("../assets/pen.png"), auto !important;
-  }
-}
-
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

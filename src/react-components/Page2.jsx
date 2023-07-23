@@ -8,15 +8,14 @@ import Pen from "../assets/pen.png";
 
 export default function Home() {
   const [scrollImage, setScrollImage] = useState(Scroll);
-  const initialDisplayText =
-    "lorem*12asdhasudhas dh asu9od hauodhuodi huias hduiasasus uas yuisdg huisg hau duio ad suios uiod huiobdauisgbyuiasg uias nduiasuiao ";
   const [displayText, setDisplayText] = useState("");
-  const [textIndex, setTextIndex] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setScrollImage(NewImage);
-      startTextAnimation();
+      setDisplayText(
+        "In publishing and graphic design, Lorem.s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      );
     }, 3400);
 
     return () => {
@@ -28,20 +27,6 @@ export default function Home() {
     const cursorElement = document.querySelector(".custom-cursor");
     cursorElement.style.cursor = `url(${Pen}), auto`;
   }, []);
-
-  const startTextAnimation = () => {
-    const interval = setInterval(() => {
-      setTextIndex((prevIndex) => {
-        if (prevIndex >= initialDisplayText.length) {
-          clearInterval(interval);
-          return prevIndex;
-        } else {
-          setDisplayText(initialDisplayText.substring(0, prevIndex + 1));
-          return prevIndex + 1;
-        }
-      });
-    }, 40);
-  };
 
   return (
     <div className="custom-cursor">

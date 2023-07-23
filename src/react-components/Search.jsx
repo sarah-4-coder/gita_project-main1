@@ -94,7 +94,7 @@ const SearchBar = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Type Your Question Here!"
-        className="px-4"
+        className="px-2 "
       />
       <button
         // className={`microphone-button ${listening ? "listening" : ""}`}
@@ -115,7 +115,7 @@ const SearchBar = () => {
       {listening && !micInputComplete && (
         <span className="recording-time mx-1 my-auto">{recordingTime}s</span>
       )}
-      <div className=" my-auto mx-4 bg-black text-white rounded-2xl px-3 py-2">
+      <div className=" my-auto  mx-4  bg-black text-white rounded-2xl px-3 py-2">
         <button onClick={handleFindOutClick}>FIND OUT!</button>
       </div>
     </div>
